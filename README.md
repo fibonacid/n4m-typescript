@@ -177,3 +177,87 @@ You might have noticed a few flags in the command:
 
 Now, if you run `npm run build` you should see a `dist` folder with a `main.js` file inside.
 To make it available inside our patcher, we need to open the Max Project window and click on the `+` icon on the bottom. Select _Add Existing Files_ and select the `dist/main.js`.
+
+## Connecting Max to the application
+
+The last piece of the puzzle is to connect the patcher to the application.
+To do so, I recommend copy and modify the helper patch for `node.script` and modify it to fit our needs.
+
+The node object should look like this, everything else is optional:
+
+```
+node.scripts main.js @autostart 1 @watch 1
+```
+
+- `node.script`: name of the max object
+- `main.js`: filename of the bundled application
+- `@autostart 1`: tells the object to start the application when the patcher is loaded
+- `@watch 1`: tells the object to reload the application when the `main.js` is modified
+
+Here is a compressed version of the patch that you can copy and paste inside `main.maxpat`:
+
+```
+<pre><code>
+----------begin_max5_patcher----------
+2632.3ocuasziiiaD9r6eEDBYvdoaOjTumbYFjbIAYytHytHG1YggrEsM6QV
+TPjtc2Yw9eO7gjrjrjaYaIO.s8HRIyu5iUUrXUT+wCyrVxdkvs.eB7afYy9i
+GlMS2jpgYEWOyZWzqqRh35ayZEa2NRpv5QSeBxqBc6+Jm.9bzdAiKhxE.D3v
+VRJ3M19b.eUNMS.3aY6ShAl9YoqHpdArL4sI1R.YQhUaK+YSnojUr8o5eabQ
+izX8HwV97SHT4clteGMMgHznCcrQ1dQYqvhV0i.McyhbxJgQlsClCeD33DN2
+8Q.F5q9x1dND76pG4Oe3A0GONPpIkbPhsSXlbITHf78ooxwtrWC7DukQL.wx
+5Q4efeuCQsSIE2ojh6WRwtPsn54n9xOT8IFekRZeJA.v+hl9c9mJ6X4lUrDV
+tAAv41vv.ncHF45E3g8eT0Dx2ywG5FDfscwgO10cgTn7ThwAWNLqYoBN8+oo
+RjR9NBqZiORIxM9n5W81Th7jZLR8FjlfQgNZcoqkZEQK6UGgpn71pJxGnv.1
+5mT1R+yuB9xO+O.+c1Jt5F0s8uYwDvZVN3GidE7SuPxegRNn5U0wb4S7eIK4
+TAQ2zO+iUW1o9nuUEUjGsiHH4KHoQKSH0ook6EBVZK5783X6ihTC8FmPHJzC
+5G3Xir8seT2TccDWUStsUkpOC24zFVMgY6Xl17zeAQiqwel1AWrdxvz0VZbL
+oAyTib8sFIMRsnIIKswN5nwd8mgjWHOEBjzPhlPjZGbZiotYVQYY0ZdVsGQw
+BOaloBdrpIZpoIuplxIuPKedXUqQ4RjKjvdetV6w5UOGqi+LRky7z8TMTLMJ
+mOJfjl4Sk5e7rnUlGVMAU18Qt.AMbAzV8kmiwMX.7Han7SkvV8cRbczYol3n
+oY4DtzUWjnE3shIqi1mHVzv4Cddm8ut.hc1oRHz3+K4znjJIXSNMlkp.QioB
+UykCmT3b0xlacgQeGoQYc7vRULIuzSmxElE64KixUyTEly3xNELVRytpdtDx
+ZQQ2YzzzVrnfk0em4zMaOyytjI6b249s08vWrO0z6BoRgXAO5klrsHJIov9r
+4O+qQozcQBhfZlBvvpNMtz1JicgkjzPdM87RG8DKUxWQNPiEa0CTckASPPEJ
+QVUyxwzMDtnYahnM7lsvEuYH8ZMseYgQ7BAYWVRjn0MHMOnbgLnqC7harTQq
+NAbL3u5F00c10n8VN8jVe7nMjJS15d9jSrY7O8wOlJshelOmku4ijzOV+VOM
+FnJk3VtEcq+XcEGTGtGQ05oqH+PZuhgX8R2XTy3glUt.PgSmIjeNb3v7zrcR
+JRFU0UxONiO+33YWiercmD9owhlsV3bkz0nzB65HD+dIDz0RHgtFlPu9g68W
+eIgEEC9lUmgxMW9qHg72rtN1xd7UeLrkQ6AqiI+tp8X1yETtMTLv97jxis9q
+ORB2KI41KI4ddRRGclqItDr+jvQZTdVBPsoh9jYTuxL7ZULLQjpC7FV9Yigu
+buk0WLSCqzXxq0BEbxUgHaHulA9l7ebvmkK2xETgRq5Ce.CGGUp.zU3lZH5T
+XOyVb87t2FdRu1RmS6j.aKHUFz7KDvRFS7t704zBsctBZBODZB5X7oGduoId
+VtThWC3uovLPsuKYn.ef+QsV97shcW4BeXuwekOCWYizbUf+cekuTmcOEkQe
+p1tnuTVYBBfz+X3QAn6s9SzRNKQ5LRYmccTBxYhTTP9ZNwO7tqm7W+Vt7dAI
+Q6SWscYtbiOjbveogO1txq7kRbvIRWxF4a1Khl4rc6g4NtQekvzy12zigp+t
+oTNae9pRIsXgdPykgk6XUPSqR6wuUEDDXnSnWLFbFHHrO8F2QiyXROpEzAxS
+yjE4z63ESDxwCk8bmP5SABzPXuIFC1C.CNSLFvC.CS5bg6.0HPCUUtHQeGuX
+pPt2.Qd.ZXHG6VyHTewDgb6ABb+Ibd2dntv5fl6l8LKFT6hIB4CE3pU+NOvc
+Lq+aax2tA45KlHj6NZH2FCuqHO.MZPuPAIntsVfWuQP7P8ZoXoxWd7BSsAVD
+ID4zkxPK4sKNzEkC6MIrkQIsR7bWo39gifajJB8+g7BIJQelBL.15z5r4VUg
+58KaVOiarxaNgAFS0BO0lcK4bkEUrYzt0yMgRD6+rDzUcasufyQ.5LBXwYkv
+HfNna5bDTVBiRnoxkotDSzDp3s5HgsdMmHJKHLTUu2iUyzT7t3boRUUQYJmi
+VkPW8cw1b19Maq29I02oYGubZGlQor1aUE5dipLkMZgkGaJsJruInkQoa5bR
+xqZRpzjQt4246XoTAKuHKuWPIhOy7ncnYdLPu.iCDZlHgi7IB4WjVgG1xRHf
+0Q6nIuAXqKOOPEI3GTnjyG5Y+wYjJRtiNgFXOSNfLGOlq9r+zmkZgr9tm9mN
+OfKnQxjUKn1d5uBruIK12QNSy1Ad5oxyJvk4eJbTkVn4L4ztzCiq3lkyVIui
+upqb9EJttip3ZapSGJbJEW90Hm1ipbFp+x2cZESV1kIj3fwQHCMQdFpSDjm6
+jbF89JgniM5YtNsy5ZIRSWy.rTvV1AffAhhiK8JC1FkFmHsmGp24pDPWDZkN
+JUyog.cYwbYtMNMlzOWdti1omNZdji43+3oOomtWKaJG1kGiSoyRXz6h5UYe
+9rmXtArXF9bRqYYLipiKbRrOHq1xNlP0gZaLRN.Jjvh.OcsmDii+1VxpuqMO
+TkWWFgBmUXhDAxI7LYCDkEh5NTy2fVT06Zcf505.eWsNJxReo0Q.7lrNJNsm
+Wb3tnvQxx3L5MpD+dzxv19lByquS4opZd.4cpNrSOsLhSWA9bFKaeF.0wtOQ
+tiSDr3hyhRfotK9ShIwWRRNITcPTNQF7CYM8URL3.UrE7ClEO+gAeB9crtqJ
+7FtpTe291VM38iSJWbYdIQ3wwKYgXVDAg2MoQzixtRGedgjtKhlNWFIQi27i
+OePgK.5JdWGfVW9pgsOh+v49NHjum5+YN13u6QA2vZNXyhJFkiFmW5AlhrJV
+n0wBcci7ALSSgKVRSWnqeaiLiI2AUO8nY0iG.lqJmYOy2SGfh4oovniCBkEc
+SJSxgpDrzTq7Bck+LOJeydkymxWjgZpXppZAa7lZzggfJP1pLlrkjjESDQzD
+tT0z5LqLXrULNQMao.gt1UFFCl049yrWJwJ+8dGVE6aLlJpXkbC3XnqKxFBg
+NAA3.jZWbsHYMJZVOaCm2Nk5EL+o0NFVu5m8kF8iU94jI2KZffu2.4NFiDdH
+iDbLFovKXjJtoV0e.CMK0X6OW8x3fM4VTe0MBNr8MCNaeSRfbCqCN8U2J3Bt
+Yvod8TJ3pFD2sBsam1bbMISxyrYRCx75OAwCFY2NzLG+5BWLFj4brn3WOxbG
+IjY6VCY5KtUjENVHCGTCYpKtQj4fFKjETmyBtcNCc27TOf0d7NqCJjQE1bdk
+rCMKf13JrwGlCLr5paE09CfeZdO0d0EuM2lCwNCaexTiILgVuLhpAo0KgXqW
+.wSe4C6+EOr8KcntH488xF9ve9v+GaJmA+.
+-----------end_max5_patcher-----------
+</code></pre>
+```
