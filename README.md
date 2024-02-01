@@ -147,3 +147,33 @@ To install ESBuild, run this command:
 ```bash
 npm i --save-dev esbuild
 ```
+
+Now let's create our application entry point inside `src/main.ts`:
+
+```typescript
+import { MaxAPI } from "max-api";
+
+// It will post a message in the Max console
+// when the script is run by the `node.script` object
+maxAPI.post("Hello from TypeScript!");
+```
+
+To bundle the application, we need to create a `build` script in the `package.json` file:
+
+```diff
+   "scripts": {
+-    "test": "echo \"Error: no test specified\" && exit 1"
++    "build": "esbuild src/main.ts --bundle --platform=node --external:max-api --target=node20 --outfile=dist/main.js"
+   },
+```
+
+You might have noticed a few flags in the command:
+
+- `--bundle`: tells ESBuild to bundle all the dependencies into a single file
+- `--platform=node`: tells ESBuild that the target platform is Node
+- `--external:max-api`: tells ESBuild to not bundle the `max-api` dependency
+- `--target=node20`: tells ESBuild to target Node 20
+- `--outfile=dist/main.js`: tells ESBuild to output the bundled file in the `dist` folder
+
+Now, if you run `npm run build` you should see a `dist` folder with a `main.js` file inside.
+To make it available inside our patcher, we need to open the Max Project window and click on the `+` icon on the bottom. Select _Add Existing Files_ and select the `dist/main.js`.
