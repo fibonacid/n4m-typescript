@@ -6,7 +6,7 @@
   "scripts": {
     "build": "esbuild src/main.ts --bundle --platform=node --external:max-api --target=node20 --outfile=dist/main.js",
     "watch": "npm run build --watch",
-    "start": "npx open-cli ./patchers/main.maxpat",
+    "start": "open ./patchers/main.maxpat",
     "dev": "npm run watch & npm run start"
   },
   "engines": {
