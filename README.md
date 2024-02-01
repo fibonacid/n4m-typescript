@@ -7,7 +7,6 @@ In this blog post I'll show you how to setup a Node 4 Max project with TypeScrip
 ## TLDR;
 
 If the explanation is too long for you, you can just clone the [repository](https://github.com/fibonacid/n4m-typescript) and start from there.
-
 Here is a oneliner to download the code without the Git history:
 
 ```bash
