@@ -7,9 +7,15 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
-     "node": ">=20.6"
+    "node": ">=20.6"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@tsconfig/node20": "^20.1.2",
+    "@types/max-api": "^2.0.3",
+    "@types/node": "^20.11.15",
+    "typescript": "^5.3.3"
+  }
 }
