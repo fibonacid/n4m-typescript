@@ -2,7 +2,7 @@
 	"name" : "n4m-typescript",
 	"version" : 1,
 	"creationdate" : 3789626441,
-	"modificationdate" : 3789630292,
+	"modificationdate" : 3789639249,
 	"viewrect" : [ 25.0, 106.0, 541.0, 438.0 ],
 	"autoorganize" : 1,
 	"hideprojectwindow" : 0,
@@ -21,12 +21,7 @@
 		"code" : 		{
 			"main.js" : 			{
 				"kind" : "javascript",
-				"local" : 1,
-				"singleton" : 				{
-					"bootpath" : "~/Documents/Max 8/Projects/n4m-typescript/dist",
-					"projectrelativepath" : "./dist"
-				}
-
+				"local" : 1
 			}
 
 		}
@@ -41,7 +36,7 @@
 
 	}
 ,
-	"detailsvisible" : 0,
+	"detailsvisible" : 1,
 	"amxdtype" : 0,
 	"readonly" : 0,
 	"devpathtype" : 0,
