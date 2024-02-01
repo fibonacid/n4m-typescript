@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "esbuild src/main.ts --bundle --platform=node --external:max-api --target=node20 --outfile=dist/main.js",
+    "build": "esbuild src/main.ts --bundle --platform=node --external:max-api --target=node20 --outfile=code/main.js",
     "watch": "npm run build --watch",
     "start": "open ./patchers/main.maxpat",
     "dev": "npm run watch & npm run start"
