@@ -1,4 +1,16 @@
+# How to setup a Node for Max project with TypeScript
+
+![Screenshot](./cover.png)
+
 In this blog post I'll show you how to setup a Node 4 Max project with TypeScript. The project will live in a Git repository for versioning and will feature `build` and `watch` scripts for hot reloading.
+
+## TLDR;
+
+If the explanation is too long for you, you can just clone the repository and start from there.
+
+```bash
+npx degit 
+```
 
 ## Requirements
 
